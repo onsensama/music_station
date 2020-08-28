@@ -7,8 +7,8 @@ import Content from "./Content/Content";
 const Main = () => {
 	return (
 		<GlobalWrapper>
-			<Musicbar />
 			<Content />
+			<Musicbar />
 		</GlobalWrapper>
 	);
 };

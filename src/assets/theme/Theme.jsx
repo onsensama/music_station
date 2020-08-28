@@ -3,7 +3,16 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
 	colors: {
-		lightBlue: "#AFDBD2",
+		primaryBlue: "#34C8DE",
+		primaryRed: "#E65C62",
+		primaryYellow: "#F7C643",
+		lightGrey: "#F2F2FF",
+	},
+	fonts: ["TRY Grtsk Giga", "Leviafan"],
+	fontSizes: {
+		small: "1em",
+		medium: "2em",
+		large: "3em",
 	},
 };
 

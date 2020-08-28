@@ -1,6 +1,5 @@
 import React from "react";
-import { ContentWrapper } from "./style";
-import { ThemeProvider } from "styled-components";
+import { ContentWrapper } from "./../style";
 
 const Content = () => {
 	return (
