@@ -8,7 +8,7 @@ TRY Grtsk Giga, Leviafan
 https://black-foundry.com/fonts/grtsk/
 https://allbestfonts.com/leviafan-font/
 
-### inspiration theme
+### inspiration
 
 Kinoba
 https://kinoba.fr/

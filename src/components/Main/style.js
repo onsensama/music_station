@@ -5,6 +5,8 @@ export const ContentWrapper = styled.div`
 	background-color: ${(props) => props.theme.colors.lightGrey};
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	height: 100vh;
 	width: 75vw;
 
