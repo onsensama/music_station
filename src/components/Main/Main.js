@@ -1,8 +1,8 @@
 import React from "react";
 import { GlobalWrapper } from "./style";
 
-import Musicbar from "./Musicbar/Musicbar";
 import Content from "./Content/Content";
+import Musicbar from "./Musicbar/Musicbar";
 
 const Main = () => {
 	return (

@@ -1,10 +1,20 @@
-import React from "react";
-import { MusicbarWrapper } from ".././style";
+import React, { useState, useEffect } from "react";
+import Playlist from "./Playlist/Playlist";
+import { MusicbarWrapper } from "../style";
+import { StyledButton } from "./style";
+import musicList from "../../../models/musics";
 
 const Musicbar = () => {
+	const [musics, setMusics] = useState([]);
+
+	useEffect(() => {
+		setMusics(musicList);
+	}, []);
+
 	return (
 		<MusicbarWrapper>
-			<p>test1</p>
+			<StyledButton variant='primary'>Primary</StyledButton>
+			<Playlist />
 		</MusicbarWrapper>
 	);
 };
