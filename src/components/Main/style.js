@@ -12,7 +12,7 @@ export const ContentWrapper = styled.div`
 
 	${media.lessThan("large")`
     background-color: ${(props) => props.theme.colors.lightGrey};
-    height: 40vh;
+    height: 50vh;
     width: 100vw;
 `}
 `;
@@ -30,7 +30,7 @@ export const GlobalWrapper = styled.div`
 
 export const MusicbarWrapper = styled.div`
 	background-color: white;
-	border-radius: 50px 0px 0px 50px;
+	border-radius: 80px 0px 0px 80px;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -38,10 +38,9 @@ export const MusicbarWrapper = styled.div`
 
 	${media.lessThan("large")`
     background-color: white;
-	border-radius: 50px 50px 0px 0px;
-    height: 60vh;
+	border-radius: 80px 80px 0px 0px;
+    height: 50vh;
     width: 100vw;
-	
 `}
 `;
 
