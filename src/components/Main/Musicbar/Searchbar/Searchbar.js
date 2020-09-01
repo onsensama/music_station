@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { InputGroup, FormControl, Button } from "react-bootstrap";
+import React from "react";
 import { StyledInputGroup, StyledFormControl } from "./style";
 
 const SearchBar = () => {
