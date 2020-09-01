@@ -41,7 +41,19 @@ export const TextContent = styled.div`
 `}
 `;
 
+export const Buttons = styled.div`
+	display: flex;
+	align-items: center;
+	text-align: left;
+	margin-left: 5vh;
+	${media.lessThan("large")`
+	text-align: center;
+	justify-content:center
+`};
+`;
+
 export default {
+	Buttons,
 	Img,
 	Artist,
 	Title,

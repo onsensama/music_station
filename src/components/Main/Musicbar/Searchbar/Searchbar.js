@@ -8,7 +8,6 @@ const SearchBar = () => {
 			<StyledFormControl
 				className='border-0 '
 				placeholder='Search a music'
-				aria-label='Search a music'
 				aria-describedby='basic-addon2'
 			/>
 		</StyledInputGroup>
