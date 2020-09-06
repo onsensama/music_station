@@ -3,13 +3,13 @@ import { ContentWrapper } from "./../style";
 import { TitleApp, PlatiniumTable } from "./style";
 import Platinium from "./Platinium/Platinium";
 
-const Content = () => {
+const Content = ({ playing, playingBis }) => {
 	return (
 		<ContentWrapper>
 			<TitleApp>Kinoba Station</TitleApp>
 			<PlatiniumTable>
-				<Platinium />
-				<Platinium reverse='scale(1, 1)' />
+				<Platinium playing={playing} />
+				<Platinium playingBis={playingBis} reverse='scale(1, 1)' />
 			</PlatiniumTable>
 		</ContentWrapper>
 	);

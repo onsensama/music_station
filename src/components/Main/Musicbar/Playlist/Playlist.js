@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
 	Title,
 	Artist,
@@ -9,29 +9,28 @@ import {
 } from "./style";
 import { Card, Accordion, Button } from "react-bootstrap";
 
-const useAudio = (song) => {
-	const [audio] = useState(new Audio(song));
-	const [playing, setPlaying] = useState(false);
-
-	const toggle = () => setPlaying(!playing);
-
-	useEffect(() => {
-		playing ? audio.play() : audio.pause();
-	}, [playing]);
-
-	useEffect(() => {
-		audio.addEventListener("ended", () => setPlaying(false));
-		return () => {
-			audio.removeEventListener("ended", () => setPlaying(false));
-		};
-	}, []);
-
-	return [playing, toggle];
-};
-
-const Playlist = ({ artist, id, img, song, title, status }) => {
-	const [playing, toggle] = useAudio(song);
-	const [playingBis, toggleBis] = useAudio(song);
+const Playlist = ({
+	artist,
+	id,
+	img,
+	title,
+	playing,
+	toggle,
+	playingBis,
+	toggleBis,
+	song,
+	audio,
+	search,
+	setSong,
+}) => {
+	const onClick = () => {
+		setSong(song);
+		toggle();
+	};
+	const onClickBis = () => {
+		setSong(song);
+		toggleBis();
+	};
 
 	return (
 		<Accordion key={id}>
@@ -54,11 +53,13 @@ const Playlist = ({ artist, id, img, song, title, status }) => {
 				<Accordion.Collapse eventKey={id} className='border-0'>
 					<Card.Body className='border-0'>
 						<Buttons>
-							<Button onClick={toggle} className='ml-2 mr-2 bg-danger border-0'>
+							<Button
+								onClick={() => onClick()}
+								className='ml-2 mr-2 bg-danger border-0'>
 								{playing ? "Pause 1" : "Play 1"}
 							</Button>
 							<Button
-								onClick={toggleBis}
+								onClick={() => onClickBis()}
 								className='ml-2 mr-2 bg-danger border-0'>
 								{playingBis ? "Pause 2" : "Play 2"}
 							</Button>
