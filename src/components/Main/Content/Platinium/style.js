@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import media from "styled-media-query";
 
 const rotating = keyframes`
@@ -24,14 +24,24 @@ display: none
 export const Platinium = styled.img`
 	z-index: 1;
 	position: absolute;
-	animation: ${rotating} 4s linear infinite;
 	right: 15%;
 	width: 20vw;
 	top: 13%;
+
+	${(props) =>
+		props.playing || props.playingBis
+			? css`
+					animation: ${rotating} 4s linear infinite;
+			  `
+			: ""}
+
 	${media.lessThan("large")`
 	top: 15%;
 	width: 28vw;
 	left: 10%
+
+
+
 `}
 	${media.lessThan("small")`
 top: 10%;

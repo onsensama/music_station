@@ -1,14 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GlobalWrapper } from "./style";
 
 import Content from "./Content/Content";
 import Musicbar from "./Musicbar/Musicbar";
+import musicList from "../../models/musics";
+import starboy from "../../assets/songs/starboy.mp3";
 
 const Main = () => {
+	const [musics, setMusics] = useState([]);
+
+	useEffect(() => {
+		setMusics(musicList);
+	}, []);
+
+	const [song, setSong] = useState(starboy);
+
+	useEffect(() => {
+		setSong(new Audio(song));
+	}, []);
+
+	const useAudio = (song) => {
+		const [audio, setAudio] = useState(new Audio());
+
+		useEffect(() => {
+			setAudio(new Audio(song));
+		}, [song]);
+
+		const [playing, setPlaying] = useState(false);
+
+		const toggle = () => setPlaying(!playing);
+		useEffect(() => {
+			!!playing ? audio.play() : audio.pause();
+		}, [playing]);
+
+		useEffect(() => {
+			audio.addEventListener("ended", () => setPlaying(false));
+			return () => {
+				audio.removeEventListener("ended", () => setPlaying(false));
+			};
+		}, []);
+		return [playing, toggle];
+	};
+
+	const [playing, toggle] = useAudio(song);
+	const [playingBis, toggleBis] = useAudio(song);
+
 	return (
 		<GlobalWrapper>
-			<Content />
-			<Musicbar />
+			<Content
+				playing={playing}
+				playingBis={playingBis}
+				toggle={toggle}
+				toggleBis={toggleBis}
+			/>
+			<Musicbar
+				musics={musics}
+				playing={playing}
+				toggle={toggle}
+				playingBis={playingBis}
+				toggleBis={toggleBis}
+				setSong={(song) => setSong(song)}
+			/>
 		</GlobalWrapper>
 	);
 };
