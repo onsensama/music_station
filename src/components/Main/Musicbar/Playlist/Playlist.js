@@ -8,6 +8,8 @@ import {
 	Buttons,
 } from "./style";
 import { Card, Accordion, Button } from "react-bootstrap";
+import { useDrag } from "react-dnd";
+import { ItemTypes } from "../../../../utils/items";
 
 const Playlist = ({
 	artist,
@@ -29,14 +31,28 @@ const Playlist = ({
 	};
 	const onClickBis = () => {
 		setSong(song);
-		toggleBis();
+		toggleBis(song);
 	};
+
+	const [{ isDragging }, drag] = useDrag({
+		item: {
+			type: ItemTypes.CARD,
+			id: id,
+		},
+		collect: (monitor) => ({
+			isDragging: !!monitor.isDragging(),
+		}),
+	});
 
 	return (
 		<Accordion key={id}>
 			<Card className='border-0 '>
 				<Card.Header className='bg-transparent border-0 pb-0'>
 					<Accordion.Toggle
+						ref={drag}
+						style={{
+							opacity: isDragging ? "0.5" : "1",
+						}}
 						as={Button}
 						variant='link'
 						eventKey={id}
@@ -54,7 +70,7 @@ const Playlist = ({
 					<Card.Body className='border-0'>
 						<Buttons>
 							<Button
-								onClick={() => onClick()}
+								onClick={() => setSong(song)}
 								className='ml-2 mr-2 bg-danger border-0'>
 								{playing ? "Pause 1" : "Play 1"}
 							</Button>

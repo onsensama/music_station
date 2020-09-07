@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledInputGroup, StyledFormControl } from "./style";
 
 const SearchBar = ({ onChange }) => {

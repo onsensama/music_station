@@ -13,10 +13,14 @@ const Main = () => {
 		setMusics(musicList);
 	}, []);
 
-	const [song, setSong] = useState("");
+	const [song, setSong] = useState(starboy);
+
+	useEffect(() => {
+		setSong(new Audio(song));
+	}, []);
 
 	const useAudio = (song) => {
-		const [audio, setAudio] = useState(new Audio(song));
+		const [audio, setAudio] = useState(new Audio());
 
 		useEffect(() => {
 			setAudio(new Audio(song));
@@ -43,7 +47,12 @@ const Main = () => {
 
 	return (
 		<GlobalWrapper>
-			<Content playing={playing} playingBis={playingBis} />
+			<Content
+				playing={playing}
+				playingBis={playingBis}
+				toggle={toggle}
+				toggleBis={toggleBis}
+			/>
 			<Musicbar
 				musics={musics}
 				playing={playing}
